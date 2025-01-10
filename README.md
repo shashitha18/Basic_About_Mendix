@@ -120,6 +120,36 @@ Here’s how you can create a simple to-do list app in Mendix in just a few step
 
 ---
 
+## Advanced Customization with Code 👨‍💻👩‍💻
+While Mendix is low-code, advanced developers can include custom Java or JavaScript logic when required. Here’s an example:
+
+### **Java Code Example: Setting Task Completion Date**
+```java
+// Java Action for Task Completion Date
+import com.mendix.systemwideinterfaces.core.IContext;
+import com.mendix.webui.CustomJavaAction;
+
+public class SetCompletionDate extends CustomJavaAction<Void> {
+    private final DateTime completionDate;
+
+    public SetCompletionDate(IContext context, DateTime completionDate) {
+        super(context);
+        this.completionDate = completionDate;
+    }
+
+    @Override
+    public Void executeAction() throws Exception {
+        // Logic to update the task completion date
+        getContext().getCore().getChangeObject().setAttribute("CompletionDate", completionDate);
+        return null;
+    }
+}
+```
+
+This action can be used in a **microflow** to automate setting the task’s completion date.
+
+---
+
 ## Helpful Video Tutorials 🎥
 - **Mendix Overview**: [Watch on YouTube](https://youtu.be/example-overview) 🌟.
 - **Build Your First App**: [Step-by-Step Tutorial](https://youtu.be/example-tutorial) 🛠️.
@@ -135,5 +165,5 @@ Here’s how you can create a simple to-do list app in Mendix in just a few step
 ---
 
 ## Get Started Today! 🚀
-Visit [Mendix.com](https://www.mendix.com/) and start building your first app. Don’t forget to share your success story—we’d love to hear it! 🎉
+Visit to Mendix Website [Mendix.com](https://www.mendix.com/) and start building your first app.😁😁 🎉
 
